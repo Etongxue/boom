@@ -4,7 +4,7 @@ name: 🚀 BOOM
 on:
 # 手动触发
  workflow_dispatch: 
-  # 定时触发 参考 https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#schedule
+# 定时触发 参考 https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#schedule
  schedule:
   - cron: '30 01 00 00'
   - cron: '07 00 00 00'  
