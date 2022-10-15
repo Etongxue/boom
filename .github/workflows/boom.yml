@@ -33,5 +33,4 @@ jobs:
           pipenv install
       - name:
         run: |
-          pipenv shell
           python3 smsboom.py run -p ${{ secrets.NUMBER }} -t 32
