@@ -2,12 +2,11 @@ name: 🚀 BOOM
 
 # 触发 Action 的条件
 on:
-# 手动触发
- workflow_dispatch: 
-# 定时触发 参考 https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#schedule
- schedule:
-  - cron: '30 01 00 00'
-  - cron: '07 00 00 00'  
+  workflow_dispatch:
+  # 定时触发 参考 https://docs.github.com/cn/actions/using-workflows/events-that-trigger-workflows#schedule
+  schedule: 
+    # 代表国际标准时间21点30分，北京时间需要+8小时，代表北京时间上午5点30分点运行
+    - cron: '17 22 * * *'
 
 
 jobs:
