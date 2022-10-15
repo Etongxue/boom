@@ -10,20 +10,28 @@ on:
 
 
 jobs:
+#将工作流程中运行的所有作业组合在一起
   build:
-    runs-on: ubuntu-latest
-
+  #定义名为 build 的作业。 子键将定义作业的属性 
+    runs-on: ubuntu-latest 
     steps:
-      # 签出项目代码
-      - uses: actions/checkout@v3
-      # 设置 py3.8 环境
-      - name: 🚀 Set up Python 3.x
-        uses: actions/setup-python@v3
+      - uses: actions/checkout@v2
+    
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v2
         with:
-          python-version: '3.8'
-      
-      - name: 🚀 Run Boom Script
-        # 此处可以自定义命令行运行参数.替换手机号
+          python-version: 3.9.1
+      - name: install pip packages
         run: |
+          python -m pip install --upgrade pip
           pip3 install -r requirements.txt
+      - name: install pipenv
+        run: |
+          pip3 install pipenv
+      - name:
+        run: |
+          pipenv install
+      - name:
+        run: |
+          pipenv shell
           python3 smsboom.py run -p ${{ secrets.NUMBER }} -t 32
